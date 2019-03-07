@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // Make our variables global to the runtime of our application
     var redGem = 0;
     var yellowGem = 0;
     var blueGem = 0;
@@ -8,7 +7,18 @@ $(document).ready(function() {
     var targetGem = 0;
     var won = 0;
     var lost= 0;
+    var ins = false;
     var numArray = [1,2,3,4,5,6,7,8,9,10];
+
+    $("#ins-div").attr("style", "visibility: hide");
+
+    $('#ins-button').click(function() {
+        $('#ins-div').slideToggle("slide");
+      });
+
+    
+    initializeGem();
+
 
     function initializeGem () {
         $("#num-gem").attr("style", "visibility: show");
@@ -21,31 +31,22 @@ $(document).ready(function() {
         $("#lost-score").attr("style", "visibility: show");
         $("#won-score").attr("style", "visibility: show");
 
-
         redGem = (Math.floor(Math.random() * 9) + 1);
         yellowGem = (Math.floor(Math.random() * 9) + 1);
         blueGem = (Math.floor(Math.random() * 9) + 1);
         purpleGem = (Math.floor(Math.random() * 9) + 1);
         targetGem = (Math.floor(Math.random() * 90) + 10);
 
-        $("#num-gem").empty();
+        $("#num-gem").text(numGem);
         $("#red-gem").val(redGem);
         $("#yellow-gem").val(yellowGem);
         $("#blue-gem").val(blueGem);
         $("#purple-gem").val(purpleGem);
         $("#target-gem").text(targetGem);
-        $("#lost-score").text("Lost: " + lost);
-        $("#won-score").text("Won: " + won);
-
-
-        console.log($("#red-gem").val());
-        console.log($("#yellow-gem").val());
-        console.log($("#blue-gem").val());
-        console.log($("#purple-gem").val());
-        console.log($("#target-gem").text());
+        $("#lost-score").text(lost);
+        $("#won-score").text(won);
     }
 
-    initializeGem();
 
     $("#red-gem").on("click", function() {
         numGem += redGem;
@@ -54,12 +55,14 @@ $(document).ready(function() {
         checkNum();
     });
 
+
     $("#yellow-gem").on("click", function() {
         numGem += yellowGem;
         $("#num-gem").text(numGem);
         console.log(numGem);
         checkNum();
     });
+
 
     $("#blue-gem").on("click", function() {
         numGem += blueGem;
@@ -68,12 +71,14 @@ $(document).ready(function() {
         checkNum();
     });
 
+
     $("#purple-gem").on("click", function() {
         numGem += purpleGem;
         $("#num-gem").text(numGem);
         console.log(numGem);
         checkNum();
     });
+
 
     function checkNum() {
         if (numGem === targetGem) {
@@ -90,6 +95,8 @@ $(document).ready(function() {
             console.log("Still under");
         }
     }
+
+
     function resetView() {
         $("#num-gem").attr("style", "visibility: hidden");
         $("#red-gem").attr("style", "visibility: hidden");
@@ -98,7 +105,9 @@ $(document).ready(function() {
         $("#purple-gem").attr("style", "visibility: hidden");
         $("#target-gem").attr("style", "visibility: hidden");
         $("#message").attr("style", "visibility: show");
-    }
+    };
+
+
     function youWin() {
 
         $("#message").text("Clever girl!");
@@ -108,12 +117,14 @@ $(document).ready(function() {
         });
     };
 
+
     function youLose() {
         $("#message").text("NO DUMB DUMB!");    
         lost++;
         $("#message").on("click", function() {
             initializeGem();
         });
-    }
+    };
+
 
 });

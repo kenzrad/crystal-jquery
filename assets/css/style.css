@@ -1,11 +1,23 @@
 .gem-button {
-    width: 25px;
-    height: 25px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .gem-main {
-    width: 50px;
-    height: 50px;
+    font-size: 6em;
+}
+
+.score-card {
+    font-size: 2.5em;
+}
+
+.card-title {
+    font-size: 1.5em;
+    font-style: bold;
+}
+
+.gem-container {
+    background-color: black;
 }
 
 /* body {
