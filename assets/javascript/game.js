@@ -43,8 +43,8 @@ $(document).ready(function() {
         $("#blue-gem").val(blueGem);
         $("#purple-gem").val(purpleGem);
         $("#target-gem").text(targetGem);
-        $("#lost-score").text(lost);
-        $("#won-score").text(won);
+        $("#lost-score").text("Lost: " + lost);
+        $("#won-score").text("Won: " + won);
     }
 
 

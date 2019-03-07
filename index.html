@@ -17,6 +17,11 @@
 
 <body>
 
+    <!--for win/lose message-->
+    <div id="message=div">
+        <h1 id="message"></h1>
+    </div>
+
     <button id="ins-button" class="button">Instructions</button>    
     <div id="ins-div" class="collapse">
         <p>I am the Crystal Collector! Help me collect crystals to achieve OPTIMUM CRYSTAL STATUS! Collect Crystals by clicking on them. Each crystal has a special property [number value] that can only be revealed through THE POWER OF MATH!</p>
@@ -24,47 +29,73 @@
         <p>HAVE FUN!</p>
     </div>
 
+    <div id="crystal-div" class=container>
+        <!-- <div class="row my-2 align-items-center">
+            <div class=col-md-12> -->
+                    <div class="row">
+                        <div class="col-md-3 col-6 text-center p-1">
+                            <input type="image" class="gem-button img-fluid" id="purple-gem" src="assets/images/purple.png"></input>
+                        </div>
+                        <div class="col-md-3 col-6 text-center p-1">
+                            <input type="image" class="gem-button img-fluid" id="blue-gem" src="assets/images/blue.png"></input>
+                        </div>
+                        <div class="col-md-3 col-6 text-center p-1">
+                            <input type="image" class="gem-button img-fluid" id="red-gem" src="assets/images/red.png"></input>
+                        </div>
+                        <div class="col-md-3 col-6 text-center p-1">
+                            <input type="image" class="gem-button img-fluid" id="yellow-gem" src="assets/images/yellow.png"></input>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            <!-- <div class=col-md-6> -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="gem-main">
+                            <p>Target: </p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="target-gem" class="gem-main"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="gem-main">
+                            <p>Collection: </p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="num-gem" class="gem-main">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p id="won-score" class="gem-score"></p>
+                    </div>
+                    <div class="col-6">
+                        <p id="lost-score" class="gem-score"></p>
+                    </div>
+                </div>
+        </div>
+        <!-- </div> -->
 
-        <p id="message"></p>
-
-
-    <div class=container>
-        <div class="row my-2 align-items-center">
-            <div class=col-md-3>
                 <!-- <div class="card-group text-center"> -->
-                    <div class="card"><!--</div>style="max-width: 15rem"-->
-                        <div class="card-title">Target</div>
-                        <div id="target-gem" class="card-text gem-main"></div>
+                    <!-- <div class="card"></div>style="max-width: 15rem" -->
+                        <!-- <div class="card-title">Target</div>
+                        
                     </div>
                 </div>
             <div class="col-md-6">
-                <div id="gems" class="container gem-container container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 text-center">
-                                <input type="image" class="gem-button img-fluid" id="purple-gem" src="assets/images/purple.png"></input>
-                            </div>
-                            <div class="col-md-6 text-center">
-                                <input type="image" class="gem-button img-fluid" id="blue-gem" src="assets/images/blue.png"></input>
-                            </div>
-                        </div>
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                    <input type="image" class="gem-button img-fluid" id="red-gem" src="assets/images/red.png"></input>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <input type="image" class="gem-button img-fluid" id="yellow-gem" src="assets/images/yellow.png"></input>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
                 
             <div class="col-md-3">
                     <div class="card">
                         <div class="card-title">Collection</div>
-                        <div id="num-gem" class="card-text gem-main">0</div>
+                        
                     </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div>
     </div>
 
 
@@ -74,7 +105,7 @@
                 <div class="card-group text-center">
                     <div class="card"  style="max-width: 15rem">
                         <div class="card-title">Won</div>
-                        <div id="won-score" class="card-text gem-main"></div>
+                        
                     </div>
                     <div class="card" style="max-width: 15rem">
                         <div class="card-title">Lost</div>
@@ -82,9 +113,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-    </div>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
