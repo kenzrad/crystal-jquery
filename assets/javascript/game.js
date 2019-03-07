@@ -6,6 +6,8 @@ $(document).ready(function() {
     var purpleGem = 0;
     var numGem = 0;
     var targetGem = 0;
+    var won = 0;
+    var lost= 0;
     var numArray = [1,2,3,4,5,6,7,8,9,10];
 
     function initializeGem () {
@@ -16,6 +18,8 @@ $(document).ready(function() {
         $("#purple-gem").attr("style", "visibility: show");
         $("#target-gem").attr("style", "visibility: show");
         $("#message").attr("style", "visibility: hidden");
+        $("#lost-score").attr("style", "visibility: show");
+        $("#won-score").attr("style", "visibility: show");
 
 
         redGem = (Math.floor(Math.random() * 9) + 1);
@@ -30,6 +34,9 @@ $(document).ready(function() {
         $("#blue-gem").val(blueGem);
         $("#purple-gem").val(purpleGem);
         $("#target-gem").text(targetGem);
+        $("#lost-score").text("Lost: " + lost);
+        $("#won-score").text("Won: " + won);
+
 
         console.log($("#red-gem").val());
         console.log($("#yellow-gem").val());
@@ -72,17 +79,18 @@ $(document).ready(function() {
         if (numGem === targetGem) {
             console.log("You win!");
             youWin();
+            resetView();
         }
         else if (numGem > targetGem) {
             console.log("You lose!");
             youLose();
+            resetView();
         }
         else if (numGem < targetGem) {
             console.log("Still under");
         }
     }
-
-    function youWin() {
+    function resetView() {
         $("#num-gem").attr("style", "visibility: hidden");
         $("#red-gem").attr("style", "visibility: hidden");
         $("#yellow-gem").attr("style", "visibility: hidden");
@@ -90,21 +98,19 @@ $(document).ready(function() {
         $("#purple-gem").attr("style", "visibility: hidden");
         $("#target-gem").attr("style", "visibility: hidden");
         $("#message").attr("style", "visibility: show");
+    }
+    function youWin() {
+
         $("#message").text("Clever girl!");
+        won++;
         $("#message").on("click", function() {
             initializeGem();
         });
     };
 
     function youLose() {
-        $("#num-gem").attr("style", "visibility: hidden");
-        $("#red-gem").attr("style", "visibility: hidden");
-        $("#yellow-gem").attr("style", "visibility: hidden");
-        $("#blue-gem").attr("style", "visibility: hidden");
-        $("#purple-gem").attr("style", "visibility: hidden");
-        $("#target-gem").attr("style", "visibility: hidden");
-        $("#message").attr("style", "visibility: show");
         $("#message").text("NO DUMB DUMB!");    
+        lost++;
         $("#message").on("click", function() {
             initializeGem();
         });
