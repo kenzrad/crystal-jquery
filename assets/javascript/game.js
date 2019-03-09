@@ -7,13 +7,15 @@ $(document).ready(function() {
     var targetGem = 0;
     var won = 0;
     var lost= 0;
-    var crystalClick = 0;
+    var crystalClick = 1;
     var crystalScore = 0;
 
     $("#ins-div").attr("style", "visibility: hide");
     $("#ins-button").click(function() {
         $('#ins-div').slideToggle("slide");
     });
+
+    $("#click-score").text("Efficiency: " + crystalScore);
 
     initializeGem();
 
@@ -23,7 +25,7 @@ $(document).ready(function() {
         $("#message-div").attr("style", "display: none");
         $('#ins-cont').attr("style", "visibility: show");
         numGem = 0;
-        crystalClick = 0;
+        crystalClick = 1;
 
 
         Array.prototype.shuffle = function() {
@@ -60,7 +62,6 @@ $(document).ready(function() {
         $("#target-gem").text(targetGem);
         $("#lost-score").text("Lost: " + lost);
         $("#won-score").text("Won: " + won);
-        $("#click-score").text("Efficiency: " + crystalScore);
     }
 
 
@@ -127,18 +128,26 @@ $(document).ready(function() {
     function youWin() {
         won++;
 
-        if ((crystalScore = "0") || (crystalScore < crystalClick)) {
-            crystalScore = crystalClick;
-            $("#message").text("Clever girl!");   
-            $("#message-sub").text("Your efficiency was " + crystalClick + " clicks.");
-        }
-
-        else if (crystalScore > crystalClick) {
+        if ((crystalScore > crystalClick) && (crystalScore != 0)) {
             crystalScore = crystalClick;
             $("#message").text("Optimum Crystal Status Achieved!");   
-            $("#message-sub").text("Your efficiency was " + crystalClick + " clicks, which pleases the Crystal Collector!");
-        };
+            $("#message-sub").text("Your efficiency was score was " + crystalClick + ", which pleases the Crystal Collector!");
+            $("#click-score").text("Efficiency: " + crystalScore);
+        }
         
+        else if (crystalScore === 0) {
+            crystalScore = crystalClick;
+            $("#message").text("Clever girl!");   
+            $("#message-sub").text("Your efficiency score was " + crystalClick + ".");
+            $("#click-score").text("Efficiency: " + crystalScore);
+        }
+
+        else {
+            crystalScore = crystalClick;
+            $("#message").text("Not the most efficient, but it'll do!");   
+            $("#message-sub").text("Your efficiency was score was " + crystalClick + " clicks.");
+        }
+
         $("#message-div").on("click", function() {
             initializeGem();
         });
