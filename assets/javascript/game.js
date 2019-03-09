@@ -131,22 +131,26 @@ $(document).ready(function() {
         if ((crystalScore > crystalClick) && (crystalScore != 0)) {
             crystalScore = crystalClick;
             $("#message").text("Optimum Crystal Status Achieved!");   
-            $("#message-sub").text("Your efficiency was score was " + crystalClick + ", which pleases the Crystal Collector!");
+            $("#message-sub").text("Your new efficiency score is " + crystalClick + ", which pleases the Crystal Collector!");
             $("#click-score").text("Efficiency: " + crystalScore);
         }
         
         else if (crystalScore === 0) {
             crystalScore = crystalClick;
             $("#message").text("Clever girl!");   
-            $("#message-sub").text("Your efficiency score was " + crystalClick + ".");
+            $("#message-sub").text("Your initial efficiency score is " + crystalClick + ".");
             $("#click-score").text("Efficiency: " + crystalScore);
         }
 
-        else {
-            crystalScore = crystalClick;
-            $("#message").text("Not the most efficient, but it'll do!");   
-            $("#message-sub").text("Your efficiency was score was " + crystalClick + " clicks.");
+        else if (crystalClick > crystalScore) {
+            $("#message").text("Acceptable.");   
+            $("#message-sub").text("Your efficiency score is " + crystalClick + " for this round, which is not your best.");
         }
+
+        else {
+        $("#message").text("Consistency is pleasing.");   
+        $("#message-sub").text("Your efficiency score is " + crystalClick + " for this round, which is already your optimum efficiency score.");
+        };
 
         $("#message-div").on("click", function() {
             initializeGem();
