@@ -17,107 +17,86 @@
 
 <body>
 
-    <!--for win/lose message-->
-    <div id="message=div">
-        <h1 id="message"></h1>
-    </div>
-
-    <button id="ins-button" class="button">Instructions</button>    
-    <div id="ins-div" class="collapse">
-        <p>I am the Crystal Collector! Help me collect crystals to achieve OPTIMUM CRYSTAL STATUS! Collect Crystals by clicking on them. Each crystal has a special property [number value] that can only be revealed through THE POWER OF MATH!</p>
-        <p>Watch your crystal collection grow as you collect crystals, but don't get too greedy! If you exceed the Target Crystal Goal you will disappoint the Crystal Collector [and lose].</p>
-        <p>HAVE FUN!</p>
-    </div>
-
-    <div id="crystal-div" class=container>
-        <!-- <div class="row my-2 align-items-center">
-            <div class=col-md-12> -->
-                    <div class="row">
-                        <div class="col-md-3 col-6 text-center p-1">
-                            <input type="image" class="gem-button img-fluid" id="purple-gem" src="assets/images/purple.png"></input>
-                        </div>
-                        <div class="col-md-3 col-6 text-center p-1">
-                            <input type="image" class="gem-button img-fluid" id="blue-gem" src="assets/images/blue.png"></input>
-                        </div>
-                        <div class="col-md-3 col-6 text-center p-1">
-                            <input type="image" class="gem-button img-fluid" id="red-gem" src="assets/images/red.png"></input>
-                        </div>
-                        <div class="col-md-3 col-6 text-center p-1">
-                            <input type="image" class="gem-button img-fluid" id="yellow-gem" src="assets/images/yellow.png"></input>
-                        </div>
-                    </div>
-                <!-- </div> -->
-            <!-- <div class=col-md-6> -->
-                <div class="row">
-                    <div class="col-6">
-                        <div class="gem-main">
-                            <p>Target: </p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div id="target-gem" class="gem-main"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="gem-main">
-                            <p>Collection: </p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div id="num-gem" class="gem-main">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <p id="won-score" class="gem-score"></p>
-                    </div>
-                    <div class="col-6">
-                        <p id="lost-score" class="gem-score"></p>
-                    </div>
-                </div>
+    <div id="ins-cont" class="container instructions-container p-0 mt-3 mb-2">
+        <button id="ins-button" class="button btn-lg btn-block ins-butt">Instructions</button>    
+        <div id="ins-div" class="collapse mt-2 text-justify ins-werds">
+            <p>I am the Crystal Collector! Help me collect crystals to achieve <b class="optimum">OPTIMUM CRYSTAL STATUS</b>! Collect Crystals by clicking on them. Each crystal has a special property [number value] that can only be revealed through THE POWER OF MATH!</p>
+            <p class="small-p">Watch your crystal collection grow as you collect crystals, but don't get too greedy! If you exceed the Target Crystal Goal you will disappoint the Crystal Collector [and lose].</p>
+            <p class="small-p">Try to maximize efficiency by collecting the least amount of crystals to achieve <b class="optimum">OPTIMUM CRYSTAL STATUS</b></p>
+            <p class="small-p">NOTE: Watch out for <b>DARK CRYSTALS</b> hidden amongst the bunch that may do something...unexpected.</p>
+            <p>HAVE FUN!</p>
         </div>
-        <!-- </div> -->
-
-                <!-- <div class="card-group text-center"> -->
-                    <!-- <div class="card"></div>style="max-width: 15rem" -->
-                        <!-- <div class="card-title">Target</div>
-                        
-                    </div>
-                </div>
-            <div class="col-md-6">
-                
-                
-            <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-title">Collection</div>
-                        
-                    </div>
-            </div> -->
-        <!-- </div>
     </div>
 
+    <div id="message-div" class="container message-cont">
+        <h1 id="message" class="big-baby text-center"></h1>
+        <p id="message-sub" class="big-baby-sub text-center"></p>
+    </div>
 
-    <div class="container">
-        <div class="row my-2">
-            <div class=col-md-12>
-                <div class="card-group text-center">
-                    <div class="card"  style="max-width: 15rem">
-                        <div class="card-title">Won</div>
-                        
+    <div id="crystal-div" class="container mb-5">
+        <div class="row align-items-center light-row-top">
+            <div class="col-6">
+                <div class="row text-center">
+                    <div class="col-12 text-center">
+                        <p>Target</p>
                     </div>
-                    <div class="card" style="max-width: 15rem">
-                        <div class="card-title">Lost</div>
-                        <div id="lost-score" class="card-text gem-main"></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div id="target-gem" class="gem-main text-center"></div>
                     </div>
                 </div>
             </div>
-        </div> -->
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="m-0">Collection</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div id="num-gem" class="gem-main text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6 text-center">
+                <input type="image" class="gem-button img-fluid" id="blue-gem" src="assets/images/blue.png"></input>
+            </div>
+            <div class="col-6 text-center">
+                <input type="image" class="gem-button img-fluid" id="purple-gem" src="assets/images/purple.png"></input>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-6 text-center">
+                <input type="image" class="gem-button img-fluid" id="red-gem" src="assets/images/red.png"></input>
+            </div>
+            <div class="col-6 text-center">
+                <input type="image" class="gem-button img-fluid" id="yellow-gem" src="assets/images/yellow.png"></input>
+            </div>
+        </div>
+  
+        <div class="row align-items-center light-row-bottom">
+            <div class="col-5">
+                <p id="click-score" class="gem-score text-left"></p>
+            </div>
+            <div class="col-3">
+                <p id="won-score" class="gem-score text-center"></p>
+            </div>
+            <div class="col-4">
+                <p id="lost-score" class="gem-score text-right"></p>
+            </div>
+        </div>
+    </div>
 
+    <footer class="footer sticky-bottom container-fluid p-0 m-0 mt-5">
+        <p class="py-1 m-0 ins-butt"></p>
+        <p class="text-muted text-center bg-dark p-3 m-0">Copyright</p>
+        <p class="py-1 m-0 ins-butt"></p>
+    </footer>
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+        
 <script src="assets/javascript/game.js"></script>
 
 </body>

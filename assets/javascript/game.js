@@ -7,34 +7,49 @@ $(document).ready(function() {
     var targetGem = 0;
     var won = 0;
     var lost= 0;
-    var ins = false;
-    var numArray = [1,2,3,4,5,6,7,8,9,10];
+    var crystalClick = 0;
+    var crystalScore = 0;
 
     $("#ins-div").attr("style", "visibility: hide");
-
-    $('#ins-button').click(function() {
+    $("#ins-button").click(function() {
         $('#ins-div').slideToggle("slide");
-      });
+    });
 
-    
     initializeGem();
 
 
     function initializeGem () {
-        $("#num-gem").attr("style", "visibility: show");
-        $("#red-gem").attr("style", "visibility: show");
-        $("#yellow-gem").attr("style", "visibility: show");
-        $("#blue-gem").attr("style", "visibility: show");
-        $("#purple-gem").attr("style", "visibility: show");
-        $("#target-gem").attr("style", "visibility: show");
-        $("#message").attr("style", "visibility: hidden");
-        $("#lost-score").attr("style", "visibility: show");
-        $("#won-score").attr("style", "visibility: show");
+        $("#crystal-div").attr("style", "visibility: show");
+        $("#message-div").attr("style", "display: none");
+        $('#ins-cont').attr("style", "visibility: show");
+        numGem = 0;
+        crystalClick = 0;
 
-        redGem = (Math.floor(Math.random() * 9) + 1);
-        yellowGem = (Math.floor(Math.random() * 9) + 1);
-        blueGem = (Math.floor(Math.random() * 9) + 1);
-        purpleGem = (Math.floor(Math.random() * 9) + 1);
+
+        Array.prototype.shuffle = function() {
+            var input = this;
+             
+            for (var i = input.length-1; i >=0; i--) {
+             
+                var randomIndex = Math.floor(Math.random()*(i+1)); 
+                var itemAtIndex = input[randomIndex]; 
+                 
+                input[randomIndex] = input[i]; 
+                input[i] = itemAtIndex;
+            }
+            return input;
+        }
+         
+        var tempArray = [1,2,3,4,5,8,10,-2,50]
+        tempArray.shuffle();
+         
+        // and the result is...
+        console.log(tempArray);    
+
+        redGem = tempArray[0];
+        yellowGem = tempArray[1];
+        blueGem = tempArray[2];
+        purpleGem = tempArray[3];
         targetGem = (Math.floor(Math.random() * 90) + 10);
 
         $("#num-gem").text(numGem);
@@ -45,6 +60,7 @@ $(document).ready(function() {
         $("#target-gem").text(targetGem);
         $("#lost-score").text("Lost: " + lost);
         $("#won-score").text("Won: " + won);
+        $("#click-score").text("Efficiency: " + crystalScore);
     }
 
 
@@ -53,6 +69,7 @@ $(document).ready(function() {
         $("#num-gem").text(numGem);
         console.log(numGem);
         checkNum();
+        crystalClick++;
     });
 
 
@@ -61,6 +78,7 @@ $(document).ready(function() {
         $("#num-gem").text(numGem);
         console.log(numGem);
         checkNum();
+        crystalClick++;
     });
 
 
@@ -69,6 +87,7 @@ $(document).ready(function() {
         $("#num-gem").text(numGem);
         console.log(numGem);
         checkNum();
+        crystalClick++;
     });
 
 
@@ -77,6 +96,7 @@ $(document).ready(function() {
         $("#num-gem").text(numGem);
         console.log(numGem);
         checkNum();
+        crystalClick++;
     });
 
 
@@ -98,30 +118,38 @@ $(document).ready(function() {
 
 
     function resetView() {
-        $("#num-gem").attr("style", "visibility: hidden");
-        $("#red-gem").attr("style", "visibility: hidden");
-        $("#yellow-gem").attr("style", "visibility: hidden");
-        $("#blue-gem").attr("style", "visibility: hidden");
-        $("#purple-gem").attr("style", "visibility: hidden");
-        $("#target-gem").attr("style", "visibility: hidden");
-        $("#message").attr("style", "visibility: show");
+        $("#crystal-div").attr("style", "visibility: hidden");
+        $("#message-div").attr("style", "display: show");
+        $('#ins-cont').attr("style", "visibility: hidden");
     };
 
 
     function youWin() {
-
-        $("#message").text("Clever girl!");
         won++;
-        $("#message").on("click", function() {
+
+        if ((crystalScore = "0") || (crystalScore < crystalClick)) {
+            crystalScore = crystalClick;
+            $("#message").text("Clever girl!");   
+            $("#message-sub").text("Your efficiency was " + crystalClick + " clicks.");
+        }
+
+        else if (crystalScore > crystalClick) {
+            crystalScore = crystalClick;
+            $("#message").text("Optimum Crystal Status Achieved!");   
+            $("#message-sub").text("Your efficiency was " + crystalClick + " clicks, which pleases the Crystal Collector!");
+        };
+        
+        $("#message-div").on("click", function() {
             initializeGem();
         });
     };
 
 
     function youLose() {
-        $("#message").text("NO DUMB DUMB!");    
+        $("#message").text("NO DUMB DUMB!!");   
+        $("#message-sub").text("You have disappointed the Crystal Collector.");   
         lost++;
-        $("#message").on("click", function() {
+        $("#message-div").on("click", function() {
             initializeGem();
         });
     };

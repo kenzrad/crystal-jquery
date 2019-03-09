@@ -1,51 +1,107 @@
+body {
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-image: url("../images/crystal_background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: grey;
+}
+
+p {
+    padding: 5px;
+    margin: 0;
+}
+
+.instructions-container {
+    max-width: 400px;
+}
+
+.ins-butt {
+    background-color:#FFB6C1;
+}
+
+.ins-werds {
+    background-color: white;
+    opacity: 0.7;
+
+}
+.optimum {
+    color: #3CB371;
+    font-style: strong;
+    font-size: 110%;
+}
+
 .gem-button {
     max-width: 150px;
     max-height: 150px;
 }
 
 .gem-main {
-    font-size: 1.5em;
+    font-size: 2.5em;
 }
 
-.score-card {
-    /* font-size: 2.5em; */
+.gem-score {
+    font-size: .9em;
 }
 
-.card-title {
-    /* font-size: 1.5em;
-    font-style: bold; */
-}
-
-.gem-container {
-    background-color: black;
-}
-
-/* body {
-    background-color: red;
-} */
-/* 
-.POOP {
-    color: blue;
-}
-
-.img-container{
-    position:relative;
-    display:inline-block;
-    width: 30px;
-    height: 30px;
-  }
-  .img-container .overlay{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-  }
-
-  .overlay span{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+.light-row-top {
+    background-color:#ADD8E6;
     color: black;
-  } */
+    border-bottom-style: solid;
+    border-bottom-color: #FFB6C1;
+    border-bottom-width: 4px;
+}
+
+.light-row-bottom {
+    background-color:#ADD8E6;
+    color: black;
+    border-top-style: solid;
+    border-top-color: #FFB6C1;
+    border-top-width: 4px;
+}
+
+.message-cont {
+    max-width: 400px;
+}
+
+
+#crystal-div {
+    background-color: black;
+    width: 400px;
+    border-style: solid;
+    border-color: #FFB6C1;
+    border-width: 4px;
+}
+
+.big-baby {
+    font-size: 6rem;
+    cursor: pointer;
+    background-color: #ADD8E6;
+    border-style: solid;
+    border-color: #FFB6C1;
+    border-width: 4px;
+}
+
+.big-baby-sub {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    body {
+        font-family: "Lucida Console", "Courier New", monospace;
+        background-image: url("../images/crystal_background.jpg");
+        background-color: grey;
+    }
+
+    .big-baby {
+        font-size: 3rem;
+        cursor: pointer;
+        background-color: #ADD8E6;
+    }
+    
+    .big-baby-sub {
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+}  
